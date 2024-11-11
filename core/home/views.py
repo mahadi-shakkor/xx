@@ -35,3 +35,20 @@ def create_account(request):
 
 def forgot_password(request):
     return render(request, "home/forgot-password.html")
+# from django.shortcuts import render
+from .models import *
+
+def recipes(request):
+    if request.method == "POST":
+        data = request.POST
+        recipe_image = request.FILES.get('recipe_image')
+        recipe_name = data.get('recipe_name')
+        recipe_description = data.get('recipe_description')
+
+        Recipe.objects.create(
+            recipe_name=recipe_name,  # match the field name here
+            recipe_description=recipe_description,  # match the field name here
+            recipe_image=recipe_image  # match the field name here
+        )
+    return render(request, 'home/receipes.html')
+
