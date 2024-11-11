@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Request Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
+            <h3 class="text-center font-weight-bold mb-4">Product Request Form</h3>
+            <form>
+                <div class="form-group">
+                    <label for="product">Select Product:</label>
+                    <select class="form-control" id="product">
+                        <option>Potato</option>
+                        <option>Tomato</option>
+                        <option>Onion</option>
+                        <option>Carrot</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity Needed:</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" required>
+                        <div class="input-group-append">
+                            <select class="form-control">
+                                <option>kg</option>
+                                <option>Mon</option>
+                                <option>Ton</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

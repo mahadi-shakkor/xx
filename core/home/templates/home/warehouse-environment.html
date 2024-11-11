@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Temperature & Humidity Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="card shadow p-4">
+            <h3 class="text-center font-weight-bold mb-4">Live Temperature & Humidity Data</h3>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Temperature (°C)</th>
+                        <th>Humidity (%)</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody id="dataBody">
+                    <tr>
+                        <td>101</td>
+                        <td>Potato</td>
+                        <td id="temp-potato">-</td>
+                        <td id="humidity-potato">-</td>
+                        <td id="updated-potato">-</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Tomato</td>
+                        <td id="temp-tomato">-</td>
+                        <td id="humidity-tomato">-</td>
+                        <td id="updated-tomato">-</td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Onion</td>
+                        <td id="temp-onion">-</td>
+                        <td id="humidity-onion">-</td>
+                        <td id="updated-onion">-</td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>Carrot</td>
+                        <td id="temp-carrot">-</td>
+                        <td id="humidity-carrot">-</td>
+                        <td id="updated-carrot">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript to simulate real-time data updates -->
+    <script>
+        // Function to update temperature and humidity data
+        function updateData(productId, temperature, humidity) {
+            document.getElementById(`temp-${productId}`).textContent = temperature + " °C";
+            document.getElementById(`humidity-${productId}`).textContent = humidity + " %";
+            document.getElementById(`updated-${productId}`).textContent = new Date().toLocaleTimeString();
+        }
+
+        // Simulate live data updates every 5 seconds
+        setInterval(() => {
+            // Simulate random temperature and humidity data for each product
+            updateData("potato", (Math.random() * 5 + 15).toFixed(1), (Math.random() * 10 + 60).toFixed(1));
+            updateData("tomato", (Math.random() * 5 + 18).toFixed(1), (Math.random() * 10 + 65).toFixed(1));
+            updateData("onion", (Math.random() * 5 + 16).toFixed(1), (Math.random() * 10 + 58).toFixed(1));
+            updateData("carrot", (Math.random() * 5 + 14).toFixed(1), (Math.random() * 10 + 70).toFixed(1));
+        }, 5000);
+    </script>
+
+    <!-- Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
