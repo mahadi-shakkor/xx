@@ -26,3 +26,12 @@ def about(request):
 
 def contact(request):
     return render(request, "home/contact.html")
+
+def login(request):
+    return render(request, "home/login.html")
+
+def create_account(request):
+    return render(request, "home/create-account.html")
+
+def forgot_password(request):
+    return render(request, "home/forgot-password.html")

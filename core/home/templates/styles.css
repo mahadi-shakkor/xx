@@ -1,0 +1,32 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.jumbotron {
+    background: #007bff;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+#about, #services, #contact {
+    padding: 2rem 0;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.footer {
+    font-size: 0.875rem;
+}
