@@ -51,5 +51,10 @@ def recipes(request):
             recipe_image=recipe_image  # match the field name here
         )
         return redirect('/rp/')
-    return render(request, 'home/receipes.html')
+    
+    queryset = Recipe.objects.all()
+    context = {'recipes': queryset}
+ 
+
+    return render(request, 'home/receipes.html', context)
 

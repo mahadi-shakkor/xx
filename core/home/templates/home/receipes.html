@@ -21,4 +21,29 @@
         <button type="submit" class="btn btn-success">Add Recipe</button>
     </form>
 </div>
+
+{{recipes}}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">Des</th>
+        <th scope="col">Iamge</th>
+      </tr>
+    </thead>
+    {% for recipe in recipes %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ recipe.recipe_name }}</td>
+        <td>{{ recipe.recipe_description }}</td>
+        <td>
+            <img src="/media/{{ recipe.recipe_image }}" style="height: 100px">
+        </td>
+        
+    </tr>
+    {% endfor %}
+    
+    </tbody>
+  </table>
 {% endblock %}
