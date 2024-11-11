@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Expiration Alerts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="card shadow p-4">
+            <h3 class="text-center font-weight-bold mb-4">Product Expiration Alerts</h3>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Expiration Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <tr id="product-101">
+                        <td>101</td>
+                        <td>Potato</td>
+                        <td id="exp-date-potato">2024-11-20</td>
+                        <td id="status-potato" class="text-muted">Normal</td>
+                    </tr>
+                    <tr id="product-102">
+                        <td>102</td>
+                        <td>Tomato</td>
+                        <td id="exp-date-tomato">2024-11-15</td>
+                        <td id="status-tomato" class="text-muted">Normal</td>
+                    </tr>
+                    <tr id="product-103">
+                        <td>103</td>
+                        <td>Onion</td>
+                        <td id="exp-date-onion">2024-11-12</td>
+                        <td id="status-onion" class="text-muted">Normal</td>
+                    </tr>
+                    <tr id="product-104">
+                        <td>104</td>
+                        <td>Carrot</td>
+                        <td id="exp-date-carrot">2024-11-18</td>
+                        <td id="status-carrot" class="text-muted">Normal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript to check expiration dates and alert the user -->
+    <script>
+        // Function to check if a product is expiring soon
+        function checkExpiration() {
+            const today = new Date();
+            const warningDays = 7; // Set alert for products expiring within 7 days
+
+            // List of products with their IDs and expiration date elements
+            const products = [
+                { id: "potato", expDate: "2024-11-20" },
+                { id: "tomato", expDate: "2024-11-15" },
+                { id: "onion", expDate: "2024-11-12" },
+                { id: "carrot", expDate: "2024-11-18" }
+            ];
+
+            products.forEach(product => {
+                const expirationDate = new Date(product.expDate);
+                const daysUntilExpiration = Math.ceil((expirationDate - today) / (1000 * 60 * 60 * 24));
+
+                // Check if the product is close to expiring
+                if (daysUntilExpiration <= warningDays && daysUntilExpiration > 0) {
+                    document.getElementById(`status-${product.id}`).textContent = `Expiring in ${daysUntilExpiration} days`;
+                    document.getElementById(`status-${product.id}`).classList.remove("text-muted");
+                    document.getElementById(`status-${product.id}`).classList.add("text-warning");
+
+                    // Trigger alert
+                    alert(`Alert: ${product.id.charAt(0).toUpperCase() + product.id.slice(1)} is expiring in ${daysUntilExpiration} days!`);
+                } else if (daysUntilExpiration <= 0) {
+                    document.getElementById(`status-${product.id}`).textContent = "Expired";
+                    document.getElementById(`status-${product.id}`).classList.remove("text-muted");
+                    document.getElementById(`status-${product.id}`).classList.add("text-danger");
+                }
+            });
+        }
+
+        // Check expiration every 10 seconds (for demo purposes)
+        setInterval(checkExpiration, 10000);
+    </script>
+
+    <!-- Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

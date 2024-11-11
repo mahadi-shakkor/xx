@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Seed Assignment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="card shadow p-4">
+            <h3 class="text-center font-weight-bold mb-4">Assign Seeds to Farmers</h3>
+            <form id="seedAssignmentForm">
+                <div class="form-group">
+                    <label for="seedName">Seed Name</label>
+                    <input type="text" class="form-control" id="seedName" placeholder="Enter seed name" required>
+                </div>
+                <div class="form-group">
+                    <label for="seedVariety">Seed Variety</label>
+                    <input type="text" class="form-control" id="seedVariety" placeholder="Enter seed variety" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (kg)</label>
+                    <input type="number" class="form-control" id="amount" placeholder="Enter amount in kg" required>
+                </div>
+                <div class="form-group">
+                    <label for="region">Region/Location</label>
+                    <input type="text" class="form-control" id="region" placeholder="Enter region or location" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="assignSeed()">Assign Seed</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script to handle form submission -->
+    <script>
+        function assignSeed() {
+            // Get form values
+            const seedName = document.getElementById("seedName").value;
+            const seedVariety = document.getElementById("seedVariety").value;
+            const amount = document.getElementById("amount").value;
+            const region = document.getElementById("region").value;
+
+            // Here you can send the data to a backend server using an API or save it locally
+            console.log("Seed Assigned:");
+            console.log("Seed Name:", seedName);
+            console.log("Seed Variety:", seedVariety);
+            console.log("Amount:", amount);
+            console.log("Region:", region);
+
+            alert("Seed assigned successfully!");
+
+            // Clear the form
+            document.getElementById("seedAssignmentForm").reset();
+        }
+    </script>
+
+    <!-- Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
