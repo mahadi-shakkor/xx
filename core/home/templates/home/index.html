@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <!-- Bootstrap CSS link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJwQY4bV8gA5Y3F6kYkWjV/EdQFfXrGvS9fq5IqGFH5EjLP2T7axV7NByyS1" crossorigin="anonymous">
-</head>
-<body>
+{% extends "base.html" %}
 
-    <a href="/contact/">Contact</a>
-    |
+{% block start %}
+
+<a href="/contact/">Contact</a>
+|
 <a href="/about/">About</a>
 
 
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">This Template is returned by Django Server</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">This Template is returned by Django Server</h1>
 
-        <!-- Render the people data -->
-        {{ peoples }}
+    <!-- Render the people data -->
+    {{ peoples }}
 
-        <!-- Table with Bootstrap classes -->
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">S. No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for people in peoples %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ people.name }}</td>
-                    <td>{{ people.age }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bootstrap JS (Optional, for additional functionality) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6kW3dBltm8pdW1p4hU13b5D8EYf3PY3jw5D5d2nM6i2kgg5J" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0nM6zJNkzI6YyuwY6+5aRlF7v39xR5Yvh17uGA5jm7BRfm3r" crossorigin="anonymous"></script>
-</body>
-</html>
+    <!-- Table with Bootstrap classes -->
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">S. No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for people in peoples %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ people.name }}</td>
+                <td>{{ people.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
