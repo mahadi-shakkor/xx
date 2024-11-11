@@ -58,3 +58,7 @@ def recipes(request):
 
     return render(request, 'home/receipes.html', context)
 
+def delete_recipe(request, id):
+    queryset = Recipe.objects.get(id=id)
+    queryset.delete()
+    return redirect('/rp/')
