@@ -8,4 +8,15 @@ def success_page(request):
 
 
 def home(request):
-    return render(request, "home/index.html")
+
+    peoples = [
+    {'name': 'Abhijeet Gupta', 'age': 26},
+    {'name': 'Rohan Sharma', 'age': 23},
+    {'name': 'Vicky Kaushal', 'age': 17},
+    {'name': 'Deepanshu Chaurasiya', 'age': 16},
+    {'name': 'Sandeep', 'age': 63}
+    ]   
+
+
+
+    return render(request, "home/index.html", context={'peoples':peoples})
