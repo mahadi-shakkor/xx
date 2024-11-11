@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
 # def home(request):
@@ -50,5 +50,6 @@ def recipes(request):
             recipe_description=recipe_description,  # match the field name here
             recipe_image=recipe_image  # match the field name here
         )
+        return redirect('/rp/')
     return render(request, 'home/receipes.html')
 
